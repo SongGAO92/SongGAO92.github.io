@@ -154,7 +154,7 @@
 <h3 id="0-历史"><a href="#0-历史" class="headerlink" title="0. 历史"></a>0. 历史</h3><p>VCS version control system<br>集中式vcs<br>特点：<br>分布式vcs<br>特点</p>
 <p>Git特点：<br>优秀的存储能力<br>性能好<br>开源<br>容易</p>
 <p>git github 和 gitlab</p>
-<p>###1. 安装<br>官网安装过程如下：<br>Debian/Ubuntu</p>
+<h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h3><p>官网安装过程如下：<br>Debian/Ubuntu</p>
 <p>For the latest stable version for your release of Debian/Ubuntu</p>
 <blockquote>
 <p>apt-get install git</p>
@@ -167,7 +167,7 @@
 <blockquote>
 <p>git –version</p>
 </blockquote>
-<p>###2. 环境配置<br>配置用户名和邮箱(最小配置)</p>
+<h3 id="2-环境配置"><a href="#2-环境配置" class="headerlink" title="2. 环境配置"></a>2. 环境配置</h3><p>配置用户名和邮箱(最小配置)</p>
 <p>local: 只对某个仓库有效<br>global: 对当前用户的所有仓库有效<br>system: 对系统所有登陆的用户有效  </p>
 <p>设置配置信息： </p>
 <blockquote>
@@ -177,7 +177,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git config --list --local</span><br><span class="line">$ git config --list --global</span><br><span class="line">$ git config --list --system</span><br></pre></td></tr></table></figure>
 
 <p>additional: use pwd to show current path</p>
-<p>###3. 创建仓库，配置local信息<br>两种场景:   </p>
+<h3 id="3-创建仓库，配置local信息"><a href="#3-创建仓库，配置local信息" class="headerlink" title="3. 创建仓库，配置local信息"></a>3. 创建仓库，配置local信息</h3><p>两种场景:   </p>
 <ol>
 <li><p>已有项目纳入Git管理</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd &lt;file&gt;</span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure>
@@ -191,24 +191,19 @@
 <blockquote>
 <p>git config –local user.name “your name”<br>git config –local user.email “your email”</p>
 </blockquote>
-<p>###4. 工作区与缓存区<br>工作目录、暂存区、版本历史</p>
+<h3 id="4-工作区与缓存区"><a href="#4-工作区与缓存区" class="headerlink" title="4. 工作区与缓存区"></a>4. 工作区与缓存区</h3><p>工作目录、暂存区、版本历史</p>
 <p>工作目录 —-&gt; git add files —-&gt; 暂存区 —-&gt; git commit —-&gt; 版本历史</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git status 检查版本</span><br><span class="line">$ git add &quot;files&quot;</span><br><span class="line">$ git commit -m&quot;comments&quot;</span><br><span class="line">$ git log 显示log信息</span><br></pre></td></tr></table></figure>
 
-<p>###5. 文件重命名<br>使用下面这行命令：s</p>
+<h3 id="5-文件重命名"><a href="#5-文件重命名" class="headerlink" title="5. 文件重命名"></a>5. 文件重命名</h3><p>使用下面这行命令：s</p>
 <blockquote>
 <p>$ git mv readme readme.md</p>
 </blockquote>
-<p>###6. git log查看版本演变历史</p>
-<p>###7. gitk 图形工具的使用</p>
-<p>###8. git目录<br>切换分支</p>
+<h3 id="6-git-log查看版本演变历史"><a href="#6-git-log查看版本演变历史" class="headerlink" title="6. git log查看版本演变历史"></a>6. git log查看版本演变历史</h3><h3 id="7-gitk-图形工具的使用"><a href="#7-gitk-图形工具的使用" class="headerlink" title="7. gitk 图形工具的使用"></a>7. gitk 图形工具的使用</h3><h3 id="8-git目录"><a href="#8-git目录" class="headerlink" title="8. git目录"></a>8. git目录</h3><p>切换分支</p>
 <blockquote>
 <p>git checkout “另一个branch”</p>
 </blockquote>
-<p>###9. commit、tree和blob三个对象间的关系</p>
-<p>###10. 分离头指针情况下的注意事项</p>
-<p>###11. 进一步理解HEAD和branch</p>
-
+<h3 id="9-commit、tree和blob三个对象间的关系"><a href="#9-commit、tree和blob三个对象间的关系" class="headerlink" title="9. commit、tree和blob三个对象间的关系"></a>9. commit、tree和blob三个对象间的关系</h3><h3 id="10-分离头指针情况下的注意事项"><a href="#10-分离头指针情况下的注意事项" class="headerlink" title="10. 分离头指针情况下的注意事项"></a>10. 分离头指针情况下的注意事项</h3><h3 id="11-进一步理解HEAD和branch"><a href="#11-进一步理解HEAD和branch" class="headerlink" title="11. 进一步理解HEAD和branch"></a>11. 进一步理解HEAD和branch</h3>
         
     </section>
 </article>
