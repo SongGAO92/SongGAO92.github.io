@@ -131,6 +131,111 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2019/06/11/Git学习笔记-1/">Git学习笔记-1</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-06-11T11:52:39.000Z" itemprop="datePublished">2019-06-11</time>
+</a>
+
+            
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <hr>
+<p>title: 学习Git<br>date: 2019-06-10 11:29:08</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>系统学习一下Git</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>此部分主要是基础内容，安装以及基本的认识与操作。</p>
+<h3 id="0-历史"><a href="#0-历史" class="headerlink" title="0. 历史"></a>0. 历史</h3><p>VCS version control system</p>
+<p>本地式版本控制系统 local vcs<br>集中式 centralized vcs<br>优点：</p>
+<ol>
+<li>每个人都可以在一定程度上看到项目中其他人正在做什么</li>
+<li>管理员可以轻松掌握每个开发者权限</li>
+<li>管理起来比在各个客户端维护本地数据库来的容易<br>缺点：</li>
+<li>如果中央服务器故障，就都无法进行更新了</li>
+<li>磁盘故障，且没有做备份的话，会有丢失数据的风险</li>
+</ol>
+<p>分布式 Distributed vcs<br>客户端并不只是提取最新版本的文件快照，而是把代码仓库完整的镜像下来。这样一来，任何一处协同工作用的服务器发生故障，事后都可以用任何一个镜像出来的本地仓库恢复</p>
+<p>Git特点：<br>优秀的存储能力<br>性能好<br>开源<br>容易</p>
+<p>git github 和 gitlab</p>
+<h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h3><p>官网安装过程如下：<br>Debian/Ubuntu</p>
+<p>For the latest stable version for your release of Debian/Ubuntu</p>
+<blockquote>
+<p>apt-get install git</p>
+</blockquote>
+<p>For Ubuntu, this PPA provides the latest stable upstream Git version</p>
+<blockquote>
+<p>add-apt-repository ppa:git-core/ppa # apt update; apt install git</p>
+</blockquote>
+<p>测试是否成功安装：</p>
+<blockquote>
+<p>git –version</p>
+</blockquote>
+<h3 id="2-环境配置"><a href="#2-环境配置" class="headerlink" title="2. 环境配置"></a>2. 环境配置</h3><p>配置用户名和邮箱(最小配置)</p>
+<p>local: 只对某个仓库有效<br>global: 对当前用户的所有仓库有效<br>system: 对系统所有登陆的用户有效  </p>
+<p>设置配置信息： </p>
+<blockquote>
+<p>$ git config –global user.name “yourName”<br>$ git config –global user.email “yourEmail”</p>
+</blockquote>
+<p>显示配置信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git config --list --local</span><br><span class="line">$ git config --list --global</span><br><span class="line">$ git config --list --system</span><br></pre></td></tr></table></figure>
+
+<p>additional: use pwd to show current path</p>
+<h3 id="3-创建仓库，配置local信息"><a href="#3-创建仓库，配置local信息" class="headerlink" title="3. 创建仓库，配置local信息"></a>3. 创建仓库，配置local信息</h3><p>两种场景:   </p>
+<ol>
+<li><p>已有项目纳入Git管理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd &lt;file&gt;</span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建项目直接用Git管理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;file path&gt;</span><br><span class="line">git init &lt;your project&gt;</span><br><span class="line">cd &lt;your project&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>设置local config文件</p>
+<blockquote>
+<p>git config –local user.name “your name”<br>git config –local user.email “your email”</p>
+</blockquote>
+<h3 id="4-工作区与缓存区"><a href="#4-工作区与缓存区" class="headerlink" title="4. 工作区与缓存区"></a>4. 工作区与缓存区</h3><p>工作目录、暂存区、版本历史</p>
+<p>工作目录 —-&gt; git add files —-&gt; 暂存区 —-&gt; git commit —-&gt; 版本历史</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git status 检查版本</span><br><span class="line">$ git add &quot;files&quot;</span><br><span class="line">$ git commit -m&quot;comments&quot;</span><br><span class="line">$ git log 显示log信息</span><br></pre></td></tr></table></figure>
+
+<p>为什么要分add和commit两步走呢？<br>因为commit可以一次提交多个文件，所以可以先多次add文件，然后一次性commit</p>
+<h3 id="5-常用命令"><a href="#5-常用命令" class="headerlink" title="5.常用命令"></a>5.常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git status   输出当前仓库状态</span><br><span class="line">$ git diff     查看difference,知道文件做过哪些修改</span><br><span class="line">$ git log      查看提交的日志信息</span><br><span class="line">$ git log --pretty=oneline      只显示一行</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-文件重命名"><a href="#6-文件重命名" class="headerlink" title="6. 文件重命名"></a>6. 文件重命名</h3><p>使用下面这行命令：s</p>
+<blockquote>
+<p>$ git mv readme readme.md</p>
+</blockquote>
+<h3 id="7-git-log查看版本演变历史"><a href="#7-git-log查看版本演变历史" class="headerlink" title="7. git log查看版本演变历史"></a>7. git log查看版本演变历史</h3><h3 id="8-gitk-图形工具的使用"><a href="#8-gitk-图形工具的使用" class="headerlink" title="8. gitk 图形工具的使用"></a>8. gitk 图形工具的使用</h3><blockquote>
+<p>$ sudo apt install gitk</p>
+</blockquote>
+<h3 id="9-git目录"><a href="#9-git目录" class="headerlink" title="9. git目录"></a>9. git目录</h3><p>切换分支</p>
+<blockquote>
+<p>git checkout “另一个branch”</p>
+</blockquote>
+<h3 id="10-commit、tree和blob三个对象间的关系"><a href="#10-commit、tree和blob三个对象间的关系" class="headerlink" title="10. commit、tree和blob三个对象间的关系"></a>10. commit、tree和blob三个对象间的关系</h3><p>HEAD 引用</p>
+<blockquote>
+<p>checkout 切换  </p>
+</blockquote>
+<p>config文件</p>
+<h3 id="11-分离头指针情况下的注意事项"><a href="#11-分离头指针情况下的注意事项" class="headerlink" title="11. 分离头指针情况下的注意事项"></a>11. 分离头指针情况下的注意事项</h3><h3 id="12-进一步理解HEAD和branch"><a href="#12-进一步理解HEAD和branch" class="headerlink" title="12. 进一步理解HEAD和branch"></a>12. 进一步理解HEAD和branch</h3>
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2019/06/10/Linux学习-1/">Linux学习</a>
         </h1>
         
